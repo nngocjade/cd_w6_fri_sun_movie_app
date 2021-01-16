@@ -1,25 +1,21 @@
+import React from "react";
 //---------------STYLES
 import "./App.css";
 //---------------REACT ROUTER DOM
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // --------------PAGES
-import Header from "./components/Header";
+import PublicNavbar from "./components/PublicNavbar";
 import HomePage from "./pages/HomePage";
-import Login from "./pages/Login";
-//--------------MATERIAL UI
-import { makeStyles } from "@material-ui/core/styles";
+import LoginPage from "./pages/LoginPage";
 
-const useStyles = makeStyles({});
 function App() {
-  const classes = useStyles();
-
   return (
     <div className="App">
-      <Header />
+      <PublicNavbar />
       <Router>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact pth="/login" component={Login} />
+          <Route exact path="/login" component={LoginPage} />
         </Switch>
       </Router>
     </div>
