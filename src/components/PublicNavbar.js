@@ -5,13 +5,13 @@ const PublicNavbar = () => {
   return (
     <div>
       <ul>
-        <li as={Link} to="/">
+        <li as={Link} to={`/`}>
           Home
         </li>
-        <li as={Link} to="/login">
+        <li as={Link} to={`/login`}>
           Login
         </li>
-        <li as={Link} to="/signup">
+        <li as={Link} to={`/signup`}>
           Sign Up
         </li>
       </ul>

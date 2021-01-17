@@ -1,28 +1,29 @@
 import React, { useEffect, useState } from "react";
 import MovieList from "../components/MovieList";
 
-// const IMG_API =
-//   "https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg";
 // const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`;
+const API_KEY = process.env.REACT_APP_MOVIE_API_KEY;
+const BASE_URL = process.env.REACT_APP_MOVIE_API_URL;
 
-function HomePage() {
-  const { movies, setMovies } = useState([]); //default, no movies
+const NowPlayingPage = () => {
+  const [movies, setMovies] = useState([]); //default, no movies
   const [errorMessage, setErrorMessage] = useState();
   const [loading, setLoading] = useState(false);
-  const API_KEY = `${process.env.REACT_APP_MOVIE_API_KEY}`;
-  console.log("API-KEY", API_KEY);
+  const [pageNum, setPageNum] = useState(1);
+
+  // console.log("API-KEY", API_KEY);
 
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
       try {
-        let FEATURED_URL = `https://api.themoviedb.org/3/movie/550?api_key=${API_KEY}`;
-        console.log("FEATURED_URL:", FEATURED_URL);
-        const response = await fetch(FEATURED_URL);
+        const url = `${BASE_URL}/movie/now_playing?api_key=${API_KEY}&language=en-US&page=${pageNum}`;
+        console.log("url:", url);
+        const response = await fetch(url);
         const data = await response.json();
         if (response.ok) {
           console.log("data", data);
-          setMovies(data);
+          setMovies(data.results);
         } else {
           setErrorMessage(`FETCH MOVIE ERROR: ${data.status_message}`);
         }
@@ -32,14 +33,17 @@ function HomePage() {
       setLoading(false);
     }
     fetchData();
-  }, [API_KEY]);
+  }, [pageNum]);
+
+  console.log(movies);
 
   return (
     <div className="home-page">
-      <h1>HomePage</h1>
-      {/* <MovieList movies={movies} /> */}
+      <h1>NowPlayingPage</h1>
+      <h2>Featured Movies</h2>
+      <MovieList movies={movies} />
     </div>
   );
-}
+};
 
-export default HomePage;
+export default NowPlayingPage;

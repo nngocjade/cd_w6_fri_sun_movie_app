@@ -1,3 +1,33 @@
-.navbar {
-  background-color: darkgray !important;
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #22254b;
+  color: white;
+  margin: 0;
+}
+.movie-card-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.movie-card {
+  background-color: #373b69;
+  width: 250px;
+  margin: 1rem;
+}
+
+.movie-header img {
+  max-width: 100%;
+}
+
+.movie-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.movie-info h3 {
+  margin: 0;
 }
