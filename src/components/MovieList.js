@@ -11,15 +11,14 @@ const MovieList = ({ movies }) => {
     <div className="movie-card-container">
       {movies.map((movie) => (
         <div className="movie-card">
-          <div className="movie-header">
-            <img
-              src={`${IMG_BASE_URL}${movie.poster_path}`}
-              alt={movie.title}
-            />
-          </div>
+          <img src={`${IMG_BASE_URL}${movie.poster_path}`} alt={movie.title} />
           <div className="movie-info">
             <h3>{movie.title}</h3>
             <span>{movie.vote_average}</span>
+          </div>
+          <div className="movie-over">
+            <h2>Overview:</h2>
+            <p>{movie.overview}</p>
           </div>
         </div>
       ))}
