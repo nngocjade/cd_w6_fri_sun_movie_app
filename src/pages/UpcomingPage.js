@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MovieList from "../components/MovieList";
+import "../App.css";
 
 // const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`;
 const API_KEY = process.env.REACT_APP_MOVIE_API_KEY;

@@ -8,7 +8,6 @@ const MovieList = ({ movies }) => {
   console.log("movies", movies);
   return (
     // custom css for movie display flex
-
     <div>
       <div className="movie-card-container">
         {movies.map((movie) => (
@@ -22,7 +21,7 @@ const MovieList = ({ movies }) => {
             </div>
             <div className="rating">{movie.vote_average}</div>
             <div className="movie-over">
-              <h2>Overview:</h2>
+              <h2>Overview:</h2> 
               <span className="release-date">
                 Year: {movie.release_date.slice(0, 4)}
               </span>
