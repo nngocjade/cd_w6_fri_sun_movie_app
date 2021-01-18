@@ -3,8 +3,12 @@
 }
 body {
   background-color: #3d4650;
-  color: white;
+  color: #c3d9f1;
   margin: 0;
+}
+
+h3 {
+  margin: 7rem 0 0 4rem;
 }
 .movie-card-container {
   width: 100%;
@@ -12,9 +16,10 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 3rem;
+  margin-top: 5em;
 }
 .movie-card {
-  background-color: #585a6e;
+  background-color: #000000;
   border-radius: 8px;
   box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.2);
   width: 20rem;
@@ -28,10 +33,11 @@ body {
 }
 
 .movie-info {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; */
   padding: 1rem;
+  text-align: center;
 }
 
 .movie-info h3 {
@@ -48,8 +54,83 @@ body {
   padding: 1rem;
   transform: translateY(100%);
   transition: transform 0.3s ease-in-out;
+  max-height: 100%;
+  overflow: auto;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .movie-card:hover .movie-over {
   transform: translateY(0%);
+}
+
+.rating {
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  margin: auto;
+  width: 2.8rem;
+  height: 2.8rem;
+  background-color: rgba(0, 0, 0, 0.897);
+  color: rgb(21, 255, 0);
+  text-align: center;
+  border-radius: 8px;
+  line-height: 2.8rem;
+}
+
+.release-date {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color: rgb(21, 255, 0);
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+.button-container button {
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  border: none;
+  color: rgb(21, 255, 0);
+  background-color: #292828;
+}
+
+.nav-container {
+  width: 100%;
+  height: 5em;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5.5rem;
+}
+
+.search {
+  border: 2px solid rgb(21, 255, 0);
+  font-size: 1rem;
+  border-radius: 50px;
+  background-color: transparent;
+  color: #c3d9f1;
+  padding: 0.5rem 1.5rem;
+  outline: none;
+  width: 30vw;
+}
+.nav-container nav {
+  width: 20em;
+}
+
+.nav-container nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
 }

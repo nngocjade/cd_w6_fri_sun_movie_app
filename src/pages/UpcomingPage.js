@@ -5,10 +5,10 @@ import MovieList from "../components/MovieList";
 const API_KEY = process.env.REACT_APP_MOVIE_API_KEY;
 const BASE_URL = process.env.REACT_APP_MOVIE_API_URL;
 
-const NowPlayingPage = () => {
+const UpcommingPage = () => {
   const [movies, setMovies] = useState([]); //default, no movies
   const [errorMessage, setErrorMessage] = useState();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [pageNum, setPageNum] = useState(1);
 
   // console.log("API-KEY", API_KEY);
@@ -17,7 +17,7 @@ const NowPlayingPage = () => {
     async function fetchData() {
       setLoading(true);
       try {
-        let url = `${BASE_URL}/movie/now_playing?api_key=${API_KEY}&language=en-US&page=${pageNum}`;
+        const url = `${BASE_URL}/movie/upcomming?api_key=${API_KEY}&language=en-US&page=${pageNum}`;
         console.log("url:", url);
         const response = await fetch(url);
         const data = await response.json();
@@ -36,7 +36,6 @@ const NowPlayingPage = () => {
   }, [pageNum]);
 
   // console.log(movies);
-  if (loading) return <div>loading....</div>;
 
   return (
     <div className="home-page">
@@ -45,4 +44,4 @@ const NowPlayingPage = () => {
   );
 };
 
-export default NowPlayingPage;
+export default UpcommingPage;

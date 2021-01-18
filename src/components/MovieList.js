@@ -8,20 +8,35 @@ const MovieList = ({ movies }) => {
   console.log("movies", movies);
   return (
     // custom css for movie display flex
-    <div className="movie-card-container">
-      {movies.map((movie) => (
-        <div className="movie-card">
-          <img src={`${IMG_BASE_URL}${movie.poster_path}`} alt={movie.title} />
-          <div className="movie-info">
-            <h3>{movie.title}</h3>
-            <span>{movie.vote_average}</span>
+
+    <div>
+      <div className="movie-card-container">
+        {movies.map((movie) => (
+          <div className="movie-card" key={movie.id}>
+            <img
+              src={`${IMG_BASE_URL}${movie.poster_path}`}
+              alt={movie.title}
+            />
+            <div className="movie-info">
+              <h3>{movie.title}</h3>
+            </div>
+            <div className="rating">{movie.vote_average}</div>
+            <div className="movie-over">
+              <h2>Overview:</h2>
+              <span className="release-date">
+                Year: {movie.release_date.slice(0, 4)}
+              </span>
+              <p>{movie.overview}</p>
+              <div className="button-container">
+                <Link to={`/movie/${movie.id}`} key={movie.id}>
+                  <button>LEARN MORE</button>
+                </Link>
+                <button>TRAILER</button>
+              </div>
+            </div>
           </div>
-          <div className="movie-over">
-            <h2>Overview:</h2>
-            <p>{movie.overview}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
