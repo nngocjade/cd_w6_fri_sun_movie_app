@@ -2,10 +2,12 @@
     position: absolute;
     padding: 20px 20px;
     top: 40px;
-    left: 40px;
-    right: 40px;
+    left: 320px;
+    right: 320px;
     bottom: 20px;
     background-color: black;
+    align-items: center;
+    justify-content: center;
   }
 
   .Overlay {
